@@ -5,7 +5,7 @@ services:
         image: nginx
         volumes:
             #/pzhuweb/nginx本机nginx目录, /etc/nginx为容器目录
-            -/pzhuweb/nginx:/etc/nginx
+            - /pzhuweb/nginx:/etc/nginx
         ports:
             - 80:80
             - 443:443
