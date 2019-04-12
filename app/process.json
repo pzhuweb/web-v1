@@ -1,0 +1,1 @@
+{ "apps": [{ "name": "app-web", "script": "app.js", "instances": 4, "env": { "production": true } }] }

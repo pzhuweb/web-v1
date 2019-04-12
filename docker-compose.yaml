@@ -16,8 +16,6 @@ services:
         #指定container的名称, 后续方便使用命令进入到容器内以及与nginx.conf相对应
         container_name: app
         #构建容器
-        build: .
-        volumes:
-            - ~/Documents/docker/test:/usr/src/app
+        build: ./app/
         ports:
             - '3000:3000'
