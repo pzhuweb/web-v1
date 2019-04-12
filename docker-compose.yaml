@@ -4,10 +4,8 @@ services:
         restart: always
         image: nginx
         volumes:
-            #/pzhuweb/nginx本机nginx目录, /etc/nginx为容器目录
-            - /pzhuweb/nginx:/etc/nginx
-            #映射nginx的网页目录到容器里
-            - /pzhuweb/html/back:/usr/share/nginx/html
+            - /pzhuweb/nginx:/etc/nginx #/pzhuweb/nginx本机nginx目录, /etc/nginx为容器目录
+            - /pzhuweb/html/back:/usr/share/nginx/html #映射nginx的网页目录到容器里
         ports:
             - 80:80
             - 443:443
@@ -21,3 +19,10 @@ services:
         build: ./app/
         ports:
             - '3000:3000'
+    apache:
+        restart: always
+        image: httpd
+        volumes:
+            - /pzhuweb/website/:/usr/local/apache2/htdocs/
+        ports:
+            - '8080:80'
