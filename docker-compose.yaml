@@ -12,7 +12,6 @@ services:
             - 3000:3000
         links:
             #建立连接,web容器就无需暴露端口出去
-            - app
             - tomcat
     app:
         #指定container的名称, 后续方便使用命令进入到容器内以及与nginx.conf相对应
