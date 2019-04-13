@@ -26,8 +26,6 @@ services:
         image: tomcat
         volumes:
             - /pzhuweb/website:/usr/local/tomcat/webapps #映射一个web服务
-        ports:
-            - 8080:8080
     # apache:
     #     restart: always
     #     image: httpd
