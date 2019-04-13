@@ -5,13 +5,14 @@ services:
         image: nginx
         volumes:
             - /pzhuweb/nginx:/etc/nginx #/pzhuweb/nginx本机nginx目录, /etc/nginx为容器目录
-            - /pzhuweb/html/back:/usr/share/nginx/html #映射nginx的网页目录到容器里
+            - /pzhuweb/html:/usr/share/nginx/html #映射nginx的网页目录到容器里
         ports:
             - 80:80
             - 443:443
         links:
             #建立连接,web容器就无需暴露端口出去
             - tomcat
+            - app
     app:
         #指定container的名称, 后续方便使用命令进入到容器内以及与nginx.conf相对应
         container_name: app
@@ -25,6 +26,8 @@ services:
         image: tomcat
         volumes:
             - /pzhuweb/website:/usr/local/tomcat/webapps #映射一个web服务
+        ports:
+            - 8080:8080
     # apache:
     #     restart: always
     #     image: httpd
