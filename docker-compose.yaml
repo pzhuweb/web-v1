@@ -12,17 +12,22 @@ services:
         links:
             #建立连接,web容器就无需暴露端口出去
             - app
+            - tomcat
     app:
         #指定container的名称, 后续方便使用命令进入到容器内以及与nginx.conf相对应
         container_name: app
         #构建容器
         build: ./app/
-        ports:
-            - '3000:3000'
-    apache:
+    tomcat:
+        container_name: tomcat
         restart: always
-        image: httpd
+        image: tomcat
         volumes:
-            - /pzhuweb/website/:/usr/local/apache2/htdocs/
-        ports:
-            - '8080:80'
+            - /pzhuweb/website:/usr/local/tomcat/webapps #映射一个web服务
+    # apache:
+    #     restart: always
+    #     image: httpd
+    #     volumes:
+    #         - /pzhuweb/website/:/usr/local/apache2/htdocs/
+    #     ports:
+    #         - '8080:80'
