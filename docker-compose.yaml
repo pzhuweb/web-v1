@@ -9,6 +9,7 @@ services:
         ports:
             - 80:80
             - 443:443
+            - 3000:3000
         links:
             #建立连接,web容器就无需暴露端口出去
             - app
@@ -18,6 +19,8 @@ services:
         container_name: app
         #构建容器
         build: ./app/
+        ports:
+            - 3000:3000 
     tomcat:
         container_name: tomcat
         restart: always
