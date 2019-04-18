@@ -17,10 +17,12 @@ services:
         container_name: app
         #构建容器
         build: ./app/
-    db:
+        links:
+          - db
+    mysql:
         image: mysql
-        container_name:  db
+        restart: always 
+        container_name:  mysql
         volumes:
           - /var/lib/mysql:/var/lib/mysql
-        links:
-          - app
+        
