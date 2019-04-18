@@ -5,7 +5,7 @@ const config = {
         USERNAME: "root",//用户名
         PASSWORD: "123456",//密码
         PORT: "3306",//端口
-        HOST: "127.0.0.1" //ip地址
+        HOST: "149.129.58.102" //ip地址
     }
 }
 module.exports = config
