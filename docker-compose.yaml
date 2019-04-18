@@ -17,3 +17,9 @@ services:
         container_name: app
         #构建容器
         build: ./app/
+    db:
+        container_name:  db
+        volumes:
+          - /var/lib/mysql:/var/lib/mysql
+        links:
+          - app
