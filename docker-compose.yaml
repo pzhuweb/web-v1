@@ -18,7 +18,7 @@ services:
         #构建容器
         build: ./app/
         links:
-          - db
+          - mysql
     mysql:
         image: mysql
         restart: always 
