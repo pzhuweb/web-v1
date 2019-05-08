@@ -9,6 +9,8 @@ services:
         ports:
             - 80:80
             - 443:443
+        networks:
+            - channel
         links:
             #建立连接,web容器就无需暴露端口出去
             - app
