@@ -48,6 +48,7 @@ class Members{
                 msg: res
             }
         } catch (error) {
+            console.log('error:', error);
             ctx.status = 400;
         }    
     }
