@@ -1,0 +1,20 @@
+[2019-05-09T10:21:21.313] [ERROR] application - { Error: getaddrinfo ENOTFOUND mysql mysql:3306
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26)
+    --------------------
+    at Protocol._enqueue (C:\Users\liuxing\Desktop\web-v1\app\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\Users\liuxing\Desktop\web-v1\app\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (C:\Users\liuxing\Desktop\web-v1\app\node_modules\mysql\lib\Connection.js:118:18)
+    at Pool.getConnection (C:\Users\liuxing\Desktop\web-v1\app\node_modules\mysql\lib\Pool.js:48:16)
+    at Promise (C:\Users\liuxing\Desktop\web-v1\app\lib\mysql.js:12:14)
+    at new Promise (<anonymous>)
+    at query (C:\Users\liuxing\Desktop\web-v1\app\lib\mysql.js:11:12)
+    at selectAllType (C:\Users\liuxing\Desktop\web-v1\app\routers\articlectrl.js:147:31)
+    at dispatch (C:\Users\liuxing\Desktop\web-v1\app\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\liuxing\Desktop\web-v1\app\node_modules\koa-compose\index.js:45:18)
+  errno: 'ENOTFOUND',
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'mysql',
+  host: 'mysql',
+  port: 3306,
+  fatal: true }

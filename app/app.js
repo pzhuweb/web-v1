@@ -40,7 +40,7 @@ app.use(fileRouter.routes(), fileRouter.allowedMethods());
 
 app.on('error', err => {
     // console.log('err:', err);
-    console.log('systemLogger:', systemLogger);
+    console.log('error:', error);
     systemLogger.error(err);
 });
 
