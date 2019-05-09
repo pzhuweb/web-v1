@@ -19,6 +19,8 @@ services:
         container_name: app
         #构建容器
         build: ./app/
+        volumes:
+          - ./app:/usr/src/app
         # networks:
         #   - channel
         links:
