@@ -9,7 +9,7 @@ class Articlectrl{
                 LEFT JOIN user_table b ON a.student_num = b.student_num 
                 LEFT JOIN label_type_table c ON a.label_num = c.type 
                 LEFT JOIN article_type_table d ON a.type_num = d.type_num
-                ORDER BY read_num DESC LIMIT ?,5`;
+                ORDER BY a.post_time DESC LIMIT ?,5`;
         try {
             const res = await query(sql,values);
             const length = await query(`SELECT COUNT(id) AS COUNT FROM article_table`);
@@ -108,7 +108,7 @@ class Articlectrl{
     static async selectTop5(ctx){
         const sql = `SELECT a.id,a.title,a.post_time,b.username FROM article_table a 
             LEFT JOIN user_table b ON a.student_num = b.student_num
-            ORDER BY a.post_time DESC LIMIT 5`;
+            ORDER BY a.read_num DESC LIMIT 5`;
         try {
             const getData = await query(sql);
             ctx.status = 200;
