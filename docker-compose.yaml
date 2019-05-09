@@ -9,8 +9,8 @@ services:
         ports:
             - 80:80
             - 443:443
-        networks:
-            - channel
+        # networks:
+        #     - channel
         links:
             #建立连接,web容器就无需暴露端口出去
             - app
@@ -19,8 +19,8 @@ services:
         container_name: app
         #构建容器
         build: ./app/
-        networks:
-          - channel
+        # networks:
+        #   - channel
         links:
           - mysql
         depends_on:
@@ -34,12 +34,12 @@ services:
           - ./mysql/init:/docker-entrypoint-initdb.d/
         ports:
           - 3306:3306
-        networks:
-          - channel
+        # networks:
+        #   - channel
         environment:
           MYSQL_ROOT_PASSWORD: "123456"
           MYSQL_USER: "web"
           MYSQL_PASS: "123456"
-networks:
-  channel:
+# networks:
+#   channel:
         
