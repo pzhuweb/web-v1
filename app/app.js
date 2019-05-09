@@ -38,10 +38,10 @@ fileRouter
 app.use(router.routes(), router.allowedMethods());
 app.use(fileRouter.routes(), fileRouter.allowedMethods());
 
-app.on('error', err => {
+app.on('error', error => {
     // console.log('err:', err);
     console.log('error:', error);
-    systemLogger.error(err);
+    // systemLogger.error(err);
 });
 
 app.listen('3000', () => {
