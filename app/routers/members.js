@@ -40,7 +40,7 @@ class Members{
             LEFT JOIN depart_table c ON b.depart_num = c.depart_num
             LEFT JOIN major_table d ON b.major_num = d.major_num
             LEFT JOIN user_table e ON a.student_num = e.student_num
-            WHERE a.type_num = ? group by e.student_num`;
+            WHERE a.type_num = ? group by a.student_num`;
         try {
             const res = await query(sql,values);
             ctx.status = 200;
