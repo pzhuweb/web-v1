@@ -2,6 +2,7 @@ const Koa = require('koa');
 const app = new Koa();
 const path = require('path');
 const fs = require('fs');
+const { accessLogger, systemLogger } = require('./logger');
 const static = require('koa-static');
 const Router = require('koa-router');
 const kors = require('koa-cors');
@@ -15,6 +16,8 @@ const fileRouter = new Router({
 const multer = require('koa-multer');
 const objMulter = multer({ dest: './static' });
 const filectrl = require('./routers/filectrl');
+
+app.use(accessLogger());
 
 //静态文件
 app.use(static(path.join(__dirname, './static')));
@@ -34,6 +37,12 @@ fileRouter
 
 app.use(router.routes(), router.allowedMethods());
 app.use(fileRouter.routes(), fileRouter.allowedMethods());
+
+app.on('error', err => {
+    // console.log('err:', err);
+    console.log('systemLogger:', systemLogger);
+    systemLogger.error(err);
+});
 
 app.listen('3000', () => {
     console.log('server is strating at port 3000');

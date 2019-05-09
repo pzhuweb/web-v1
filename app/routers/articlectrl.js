@@ -143,15 +143,16 @@ class Articlectrl{
         }
     }
     static async selectAllType(ctx){
-        try {
+        // try {
             const res = await query(`SELECT * FROM article_type_table`);
             ctx.status = 200;
             ctx.body = {
                 msg: res
             }
-        } catch (error) {
-            ctx.status = 400;    
-        }
+        // } catch (error) {
+            // console.log('error:', error);
+        //     ctx.status = 400;    
+        // }
     }
     static async insertArticle(ctx){
         const postData = ctx.request.body;
