@@ -3,7 +3,7 @@ const common = require('../lib/common');
 class Achievement{   
     /* 查找所有的标签 */
     static async selectAllTag(ctx){
-        const sql = `SELECT * FROM achievement_type_table`
+        const sql = `SELECT * FROM achievement_type_table order by post_time desc`;
         try {
             const tag_status = await query(sql)
             ctx.status = 200
