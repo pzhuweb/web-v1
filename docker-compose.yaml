@@ -21,8 +21,8 @@ services:
         build: ./app/
         # networks:
         #   - channel
-        volumes:
-          - ./app:/usr/src/app
+        # volumes:
+        #   - ./app:/usr/src/app
         links:
           - mysql
         depends_on:
