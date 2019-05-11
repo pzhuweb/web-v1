@@ -3,7 +3,7 @@ const common = require('../lib/common');
 class Achievement{   
     /* 查找所有的标签 */
     static async selectAllTag(ctx){
-        const sql = `SELECT * FROM achievement_type_table order by post_time desc`;
+        const sql = `SELECT * FROM achievement_type_table`;
         try {
             const tag_status = await query(sql)
             ctx.status = 200
@@ -72,7 +72,7 @@ class Achievement{
     /* 查找所有成就 */
     static async achievementInfo(ctx){
         const sql = `SELECT a.*,b.username FROM achievement_table a 
-            LEFT JOIN user_table b ON a.student_num = b.student_num`;
+            LEFT JOIN user_table b ON a.student_num = b.student_num order by post_time desc`;
         try {
             const info = await query(sql);
             ctx.status = 200;
