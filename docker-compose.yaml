@@ -22,7 +22,7 @@ services:
         # networks:
         #   - channel
         volumes:
-          - ./app:/
+          - ./app:/usr/src/app
         links:
           - mysql
         depends_on:
